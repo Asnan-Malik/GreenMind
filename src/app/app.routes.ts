@@ -1,3 +1,29 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './Component/home/home.component';
+import { ProductComponent } from './Component/product/product.component';
+import { AboutUsComponent } from './Component/home/about-us/about-us.component';
+import { ContactComponent } from './Component/contact/contact.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent, // Home Page
+    pathMatch: 'full', // Redirect to Home Page for empty path
+  },
+  {
+    path: 'products',
+    component: ProductComponent, // Products Page
+  },
+  {
+    path: 'about',
+    component: AboutUsComponent, // About Us Page
+  },
+  {
+    path: 'contact',
+    component: ContactComponent, // Contact Us Page
+  },
+  {
+    path: '**',
+    redirectTo: '', // Wildcard route to redirect invalid URLs to Home Page
+  },
+];

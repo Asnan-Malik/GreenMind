@@ -1,0 +1,10 @@
+<section class="categories">
+    <h2>Shop by Categories</h2>
+    <div class="category-grid">
+      <div class="category" *ngFor="let category of categories">
+        <img [src]="category.image" alt="{{ category.name }}">
+        <h3>{{ category.name }}</h3>
+      </div>
+    </div>
+  </section>
+  
