@@ -1,15 +1,253 @@
 <!-- Hero Section -->
-<div class="p-16 bg-[url('https://greenmind-store.vercel.app/assets/products-hero-8a7151cf.png')] bg-no-repeat bg-cover rounded-3xl">
+<div class="m-5 p-16 bg-cover bg-no-repeat rounded-3xl"
+    style="background-image: url(https://greenmind-store.vercel.app/assets/products-hero-8a7151cf.png);">
     <div class="w-2/5 flex flex-col items-start">
-        <h1 class="font-bold text-6xl leading-tight text-[#1e1e1ebf]">Best Selling Plants</h1>
-        <p class="font-medium text-2xl leading-9 text-[#1e1e1e80] mt-6 mb-8">
-            We offer many different types of products with fewer variations in each category.
-        </p>
+        <h1 class="font-bold text-6xl leading-tight text-gray-800/75">Best Selling Plants</h1>
+        <p class="font-medium text-2xl leading-9 text-gray-800/50 mt-6 mb-8">We offer many different types of products
+            with fewer variations in each category.</p>
         <div class="w-full relative">
-            <input type="text" class="w-full h-16 bg-[#c1dcdc] rounded-xl border-none p-5 pr-24" placeholder="What are you looking for?">
-            <button class="w-12 h-12 text-lg p-3 flex items-center justify-center border-none rounded-xl absolute top-1/2 right-[-14px] transform -translate-y-1/2">
+            <input type="text"
+                class="w-full h-16 bg-teal-100 rounded-xl border-none px-5 pr-24 text-lg focus:outline-none"
+                placeholder="What are you looking for?">
+            <button
+                class="w-12 h-12 text-lg flex items-center justify-center bg-white shadow-md rounded-xl absolute top-1/2 right-4 transform -translate-y-1/2">
                 <i class="ri-search-line"></i>
             </button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Category Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-36 py-10">
+    <div class="flex flex-col items-center text-center p-5 bg-white rounded-xl shadow-md">
+        <img src="https://greenmind-store.vercel.app/assets/artificial-plants-fe8e7864.png" alt="Artificial Plant" class="w-48 h-48 object-cover rounded-full mb-2">
+        <h3 class="text-lg font-medium text-gray-800 mt-3">Artificial Plants</h3>
+        <button class="mt-3 px-4 py-2 bg-teal-100 text-teal-700 font-medium rounded-lg hover:-translate-x-1 transition-transform">See More</button>
+    </div>
+    <div class="flex flex-col items-center text-center p-5 bg-white rounded-xl shadow-md">
+        <img src="https://greenmind-store.vercel.app/assets/natural-plants-91057846.png" alt="Natural Plant" class="w-48 h-48 object-cover rounded-full mb-2">
+        <h3 class="text-lg font-medium text-gray-800 mt-3">Natural Plants</h3>
+        <button class="mt-3 px-4 py-2 bg-teal-100 text-teal-700 font-medium rounded-lg hover:-translate-x-1 transition-transform">See More</button>
+    </div>
+    <div class="flex flex-col items-center text-center p-5 bg-white rounded-xl shadow-md">
+        <img src="https://greenmind-store.vercel.app/assets/cactus-fdd337a3.png" alt="Cactus" class="w-48 h-48 object-cover rounded-full mb-2">
+        <h3 class="text-lg font-medium text-gray-800 mt-3">Cactus</h3>
+        <button class="mt-3 px-4 py-2 bg-teal-100 text-teal-700 font-medium rounded-lg hover:-translate-x-1 transition-transform">See More</button>
+    </div>
+    <div class="flex flex-col items-center text-center p-5 bg-white rounded-xl shadow-md">
+        <img src="https://greenmind-store.vercel.app/assets/bonsai-3467649f.png" alt="Bonsai" class="w-48 h-48 object-cover rounded-full mb-2">
+        <h3 class="text-lg font-medium text-gray-800 mt-3">Bonsai</h3>
+        <button class="mt-3 px-4 py-2 bg-teal-100 text-teal-700 font-medium rounded-lg hover:-translate-x-1 transition-transform">See More</button>
+    </div>
+</div>
+
+
+<!-- Search-Container -->
+<div class="types-option-container mx-auto my-24 px-6">
+    <div class="flex gap-8">
+        <!-- Sidebar -->
+        <div class="w-72 p-4 bg-gray-100 rounded-lg shadow-md">
+            <h1 class="text-xl font-semibold mb-4">Types</h1>
+            <!-- Search Bar -->
+            <label for="search-type" class="sr-only">Search by type</label>
+            <input type="text" id="search-type" placeholder="Search by type"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+
+            <!-- Filters -->
+            <div class="mt-6 space-y-3">
+                <div class="flex items-center">
+                    <input type="checkbox" id="xerophytic" class="w-5 h-5 text-green-600 focus:ring-green-500">
+                    <label for="xerophytic" class="ml-3 text-gray-700">XEROPHYTIC</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="climber" class="w-5 h-5 text-green-600 focus:ring-green-500">
+                    <label for="climber" class="ml-3 text-gray-700">CLIMBER</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="succulent" class="w-5 h-5 text-green-600 focus:ring-green-500">
+                    <label for="succulent" class="ml-3 text-gray-700">SUCCULENT</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="araceas" class="w-5 h-5 text-green-600 focus:ring-green-500">
+                    <label for="araceas" class="ml-3 text-gray-700">ARÁCEAS</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="bonsai" class="w-5 h-5 text-green-600 focus:ring-green-500">
+                    <label for="bonsai" class="ml-3 text-gray-700">BONSAI</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="flex-1">
+            <!-- Sorting Section -->
+            <div class="flex justify-between items-center mb-6">
+                <span class="text-gray-600">Showing 30 items</span>
+                <div class="flex items-center">
+                    <label for="sort-options" class="mr-3 font-medium">Sort by</label>
+                    <select id="sort-options"
+                        class="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <option>Relevancy</option>
+                        <option>Price: Highest to Lowest</option>
+                        <option>Price: Lowest to Highest</option>
+                        <option>Most Rated</option>
+                        <option>Best Sellers</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Card Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="relative bg-white rounded-lg shadow-lg overflow-hidden">
+                    <a href="/Product-Pages/AloeVera.html">
+                        <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=435&q=80"
+                            alt="Aloe Vera plant" class="w-full h-64 object-cover">
+                    </a>
+                    <div class="p-4">
+                        <h2 class="text-lg font-semibold">Aloe Vera</h2>
+                        <p class="text-sm text-gray-600">Xerophytic</p>
+                        <div class="flex items-center mt-2">
+                            <span class="text-sm text-gray-500 line-through">$15.00</span>
+                            <span class="ml-2 text-lg font-semibold text-green-600">$12.98</span>
+                        </div>
+                        <button
+                            class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                            <i class="fas fa-shopping-cart"></i> Add to cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="relative bg-white rounded-lg shadow-lg overflow-hidden">
+                    <a href="Product-Pages/vine.html">
+                        <img src="https://images.unsplash.com/photo-1536846826492-c51b3984bc96?auto=format&fit=crop&w=387&q=80"
+                            alt="Vine plant" class="w-full h-64 object-cover">
+                    </a>
+                    <div class="p-4">
+                        <h2 class="text-lg font-semibold">Vine</h2>
+                        <p class="text-sm text-gray-600">Climber</p>
+                        <div class="flex items-center mt-2">
+                            <span class="text-sm text-gray-500 line-through">$35.00</span>
+                            <span class="ml-2 text-lg font-semibold text-green-600">$31.99</span>
+                        </div>
+                        <button
+                            class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                            <i class="fas fa-shopping-cart"></i> Add to cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 (Sold Out) -->
+                <div class="relative bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="absolute top-3 right-3 px-3 py-1 bg-gray-800 text-white text-xs font-semibold rounded-lg">
+                        Sold Out
+                    </div>
+                    <a href="Product-Pages/succulent.html">
+                        <img src="https://images.unsplash.com/photo-1548587449-2c1dcd68cecd?auto=format&fit=crop&w=403&q=80"
+                            alt="Succulent plant" class="w-full h-64 object-cover">
+                    </a>
+                    <div class="p-4">
+                        <h2 class="text-lg font-semibold">Succulent</h2>
+                        <p class="text-sm text-gray-600">Succulent</p>
+                        <div class="flex items-center mt-2">
+                            <span class="text-sm text-gray-500 line-through">$19.00</span>
+                            <span class="ml-2 text-lg font-semibold text-green-600">$16.99</span>
+                        </div>
+                        <button
+                            class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-gray-400 text-white rounded-lg cursor-not-allowed">
+                            <i class="fas fa-shopping-cart"></i> Sold Out
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Best Seller Section -->
+<div class="best-seller-container mx-auto my-24 px-6">
+    <h1 class="text-2xl font-semibold mb-6">Best Sellers</h1>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Product 1 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <a href="/Product-Pages/AloeVera.html">
+                <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=435&q=80"
+                    alt="Aloe Vera plant" class="w-full h-64 object-cover">
+            </a>
+            <div class="p-4">
+                <h2 class="text-lg font-semibold">Aloe Vera</h2>
+                <p class="text-sm text-gray-600">Xerophytic</p>
+                <div class="flex items-center mt-2">
+                    <span class="text-sm text-gray-500 line-through">$15.00</span>
+                    <span class="ml-2 text-lg font-semibold text-green-600">$12.98</span>
+                </div>
+                <button class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                    <i class="fas fa-shopping-cart"></i> Add to cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <a href="/Product-Pages/vine.html">
+                <img src="https://images.unsplash.com/photo-1536846826492-c51b3984bc96?auto=format&fit=crop&w=387&q=80"
+                    alt="Vine plant" class="w-full h-64 object-cover">
+            </a>
+            <div class="p-4">
+                <h2 class="text-lg font-semibold">Vine</h2>
+                <p class="text-sm text-gray-600">Climber</p>
+                <div class="flex items-center mt-2">
+                    <span class="text-sm text-gray-500 line-through">$35.00</span>
+                    <span class="ml-2 text-lg font-semibold text-green-600">$31.99</span>
+                </div>
+                <button class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                    <i class="fas fa-shopping-cart"></i> Add to cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <a href="/Product-Pages/cactus.html">
+                <img src="https://images.unsplash.com/photo-1509937528035-ad76254b0356?auto=format&fit=crop&w=724&q=80"
+                    alt="Cactus plant" class="w-full h-64 object-cover">
+            </a>
+            <div class="p-4">
+                <h2 class="text-lg font-semibold">Cactus</h2>
+                <p class="text-sm text-gray-600">Succulent</p>
+                <div class="flex items-center mt-2">
+                    <span class="text-sm text-gray-500 line-through">$19.00</span>
+                    <span class="ml-2 text-lg font-semibold text-green-600">$16.99</span>
+                </div>
+                <button class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                    <i class="fas fa-shopping-cart"></i> Add to cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Product 4 (Sold Out) -->
+        <div class="relative bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="absolute top-3 right-3 px-3 py-1 bg-gray-800 text-white text-xs font-semibold rounded-lg">
+                Sold Out
+            </div>
+            <a href="/Product-Pages/succulent.html">
+                <img src="https://images.unsplash.com/photo-1548587449-2c1dcd68cecd?auto=format&fit=crop&w=403&q=80"
+                    alt="Succulent plant" class="w-full h-64 object-cover opacity-75">
+            </a>
+            <div class="p-4">
+                <h2 class="text-lg font-semibold">Succulent</h2>
+                <p class="text-sm text-gray-600">Succulent</p>
+                <div class="flex items-center mt-2">
+                    <span class="text-sm text-gray-500 line-through">$19.00</span>
+                    <span class="ml-2 text-lg font-semibold text-green-600">$16.99</span>
+                </div>
+                <button class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-gray-400 text-white rounded-lg cursor-not-allowed">
+                    <i class="fas fa-shopping-cart"></i> Sold Out
+                </button>
+            </div>
         </div>
     </div>
 </div>
