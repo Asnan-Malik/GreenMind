@@ -7,8 +7,12 @@ import { ContactComponent } from './Component/contact/contact.component';
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent, // Home Page
+    redirectTo: 'home',
     pathMatch: 'full', // Redirect to Home Page for empty path
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
   },
   {
     path: 'products',

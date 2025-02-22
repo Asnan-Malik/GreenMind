@@ -1,10 +1,26 @@
+<!-- categories section -->
 <section class="categories">
-    <h2>Shop by Categories</h2>
-    <div class="category-grid">
-      <div class="category" *ngFor="let category of categories">
-        <img [src]="category.image" alt="{{ category.name }}">
-        <h3>{{ category.name }}</h3>
+  <h2>Categories</h2>
+  <p>Find what you are looking for</p>
+  <!-- single category -->
+  <div class="category-container">
+    <div class="row">
+      <img src="/natural-plants.svg" alt="" />
+      <h3>Natural Plants</h3>
+    </div>
+    <div class="row">
+      <img src="/plant-accessories.svg" alt="" />
+      <div>
+        <h3>Plant Accessories</h3>
+        <p>Horem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="product.html">Explore 
+          <i class="ri-arrow-right-line"></i>
+        </a>
       </div>
     </div>
-  </section>
-  
+    <div class="row">
+      <img src="/artificial-plants.svg" alt="" />
+      <h3>Artificial Plants</h3>
+    </div>
+  </div>
+</section>

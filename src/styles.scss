@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 /* You can add global styles to this file, and also import other style files */
-body{
+body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -13,3 +14,43 @@ body{
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --bg-color: #c1dcdc;
+    /* color-1 */
+    --primary-color: #1e1e1e;
+    /* color-2 */
+    --secondary-color: #1e1e1ebf;
+    /* color-3 */
+    --text-color: #1e1e1e80;
+    /* color-4 */
+
+    --heading-text: 2rem;
+    --defaut-text: 1.125rem;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: var(--heading-text);
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 12px;
+}
+
+h3 {
+    color: #000;
+    font-size: var(--defaut-text);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 12px;
+}
+
+p {
+    color: var(--text-color);
+    font-size: var(--defaut-text);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 24px;
+}

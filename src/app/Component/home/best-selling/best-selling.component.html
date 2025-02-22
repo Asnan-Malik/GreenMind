@@ -1,11 +1,32 @@
+<!-- Best Selling Products -->
 <section class="best-selling">
-    <h2>Best Selling Products</h2>
-    <div class="product-grid">
-      <div class="product" *ngFor="let product of products">
-        <img [src]="product.image" alt="{{ product.name }}">
-        <h3>{{ product.name }}</h3>
-        <p>{{ product.price }}</p>
-      </div>
+  <div class="best-selling-content">
+    <h2>Best Selling Plants</h2>
+    <p>Easiest way to healthy life by buying your favorite plants</p>
+    <button class="btn">
+      See more <i class="ri-arrow-right-line"></i>
+    </button>
+  </div>
+
+  <div class="products">
+    <img src="/product1.png" alt="" />
+    <div>
+      <h5>Natural Plants</h5>
+      <p>₱ 1,400.00</p>
     </div>
-  </section>
-  
+  </div>
+  <div class="products">
+    <img src="/product2.png" alt="" />
+    <div>
+      <h5>Artificial Plants</h5>
+      <p>₱ 900.00</p>
+    </div>
+  </div>
+  <div class="products">
+    <img src="/product3.png" alt="" />
+    <div>
+      <h5>Natural Plants</h5>
+      <p>₱ 3,500.00</p>
+    </div>
+  </div>
+</section>

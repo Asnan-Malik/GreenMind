@@ -1,1 +1,28 @@
-<p>header works!</p>
+    <!-- header design -->
+    <header class="mx-[5%] p-3 bg-transparent border-b border-gray-200 flex justify-between items-center transition-all duration-300">
+      <!-- logo -->
+      <a routerLink="/home" class="logo w-36">
+        <img src="/logo.svg" alt="" class="w-full h-10 object-contain" />
+      </a>
+      <nav class="flex justify-between items-center w-4/5">
+        <!-- nav items -->
+        <ul class="flex space-x-4">
+          <li><a routerLink="/home" class="text-[#0e4f48] font-medium px-6 py-2 rounded-full hover:bg-[#e8f8f6] hover:text-[#0e4f48]">Home</a></li>
+          <li><a routerLink="/products" class="text-[#0e4f48] font-medium px-6 py-2 rounded-full hover:bg-[#e8f8f6] hover:text-[#0e4f48]">Products</a></li>
+          <li><a routerLink="/contact" class="text-[#0e4f48] font-medium px-6 py-2 rounded-full hover:bg-[#e8f8f6] hover:text-[#0e4f48]">Contacts</a></li>
+        </ul>
+
+        <div class="flex items-center">
+          <a href="#" class="p-3 rounded-full bg-[#e8f8f6] text-[#0e4f48] mx-2">
+            <i class="ri-shopping-cart-2-line text-lg"></i>
+          </a>
+          <a href="#" class="p-3 rounded-full bg-[#e8f8f6] text-[#0e4f48] mx-2">
+            <i class="ri-user-3-line text-lg"></i>
+          </a>
+          <div class="mx-4">|</div>
+          <div id="menu-icon" class="text-xl text-[#0e4f48] cursor-pointer">
+            <i class="bx bx-menu-alt-right"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
