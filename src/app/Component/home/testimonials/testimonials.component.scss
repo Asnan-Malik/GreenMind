@@ -2,20 +2,20 @@
 
 .review {
     position: relative;
-    height: 70vh;
+    height: 55vh;
     overflow: hidden;
     margin: 96px 0;
   }
   .review h2 {
     margin-bottom: 48px;
-    margin-left: 48px;
+    // margin-left: 48px;
     width: 450px;
   }
 
   .indicator {
     position: absolute;
     top: 20px;
-    right: 48px;
+    right: 0px;
   }
 
   .arrow-icon {
