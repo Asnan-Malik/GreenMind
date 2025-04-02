@@ -1,5 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { initFlowbite } from 'flowbite';
 import { HeaderComponent } from './Shared/header/header.component';
@@ -19,12 +18,10 @@ import { FooterComponent } from './Shared/footer/footer.component';
 export class AppComponent implements OnInit {
   title = 'GreenMind';
 
-  constructor(@Inject(PLATFORM_ID) private platformId: any) {}
+  constructor() {}
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      initFlowbite();  // Execute only in the browser
-    }
+    initFlowbite();
   }
 }
 

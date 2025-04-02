@@ -1,1 +1,76 @@
-<p>contact works!</p>
+<!-- Mobile Menu -->
+<nav id="mobile-menu" class="flex flex-col items-center mt-16 bg-white py-4 shadow-md md:hidden">
+    <a href="/index.html" class="py-2 text-gray-700 hover:text-black">Home</a>
+    <a href="/product.html" class="py-2 text-gray-700 hover:text-black">Products</a>
+    <a href="/contact.html" class="py-2 text-gray-700 hover:text-black">Contact</a>
+</nav>
+
+<!-- Contact Section -->
+<section class="flex w-full justify-center items-center min-h-screen bg-gray-200 pt-24">
+    <div class="max-w-4xl w-full bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-3xl font-bold text-center mb-4">Contact Us</h2>
+        <p class="text-center text-gray-600 mb-8">You can contact us by filling out the form below or using the contact
+            details provided.</p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Contact Form -->
+            <div>
+                <form class="space-y-4">
+                    <label class="block">
+                        <span class="text-gray-700">Name</span>
+                        <input type="text" placeholder="Your Name" required
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500">
+                    </label>
+
+                    <label class="block">
+                        <span class="text-gray-700">Email</span>
+                        <input type="email" placeholder="email@example.com" required
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500">
+                    </label>
+
+                    <label class="block">
+                        <span class="text-gray-700">Message</span>
+                        <textarea placeholder="Your Message" rows="4" required
+                            class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500"></textarea>
+                    </label>
+
+                    <button type="submit"
+                        class="w-full bg-teal-500 text-white py-2 rounded-lg hover:bg-teal-600 transition">Send</button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="space-y-4 text-gray-700">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-map-marker-alt text-teal-500"></i>
+                    <p>7631 Ridge Ave, Philadelphia, PA 19128</p>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-phone-alt text-teal-500"></i>
+                    <p>+1 215 483 5009</p>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-envelope text-teal-500"></i>
+                    <p>greenmindstore&#64;contact.com</p>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                    <i class="fas fa-clock text-teal-500"></i>
+                    <div>
+                        <p>Mon - Fri: 9am - 5pm</p>
+                        <p>Sat - Sun: 10am - 7pm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for Mobile Menu -->
+<script>
+    document.getElementById("menu-icon").addEventListener("click", function () {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+    });
+</script>

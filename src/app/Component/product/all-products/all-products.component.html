@@ -1,0 +1,72 @@
+@if(loader){
+  <app-loader></app-loader>
+} @else {
+  <div class="types-option-container mx-auto my-24 px-6">
+    <div class="flex gap-8">
+      <!-- Sidebar (Dynamic Plant Types) -->
+      <div class="w-72 p-4 bg-gray-100 rounded-lg shadow-md">
+        <h1 class="text-xl font-semibold mb-4">Types</h1>
+
+        <!-- Search Bar -->
+        <input
+          type="text"
+          [(ngModel)]="searchQuery"
+          (input)="filterTypeList()"
+          placeholder="Search types..."
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+        >
+
+        <!-- Dynamic Checkboxes -->
+        <div class="mt-6 space-y-3">
+          <div *ngFor="let type of filteredTypes" class="flex items-center">
+            <input
+              type="checkbox"
+              [id]="type"
+              [checked]="selectedTypes.includes(type)"
+              (change)="toggleTypeSelection(type)"
+              class="w-5 h-5 text-green-600 focus:ring-green-500"
+            >
+            <label [for]="type" class="ml-3 text-gray-700">{{ type }}</label>
+          </div>
+
+          <!-- Show message if no types match the search -->
+          <p *ngIf="filteredTypes.length === 0" class="text-gray-500 mt-2">No matching types found</p>
+        </div>
+      </div>
+
+      <!-- Content Area (Filtered Plant List) -->
+      <div class="flex-1">
+        <!-- Pagination & Sorting  -->
+        <div class="flex justify-between mb-4">
+          <div class="">Pagination</div>
+          <div class="">Sorting</div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div *ngFor="let plant of filteredPlants" class="relative bg-white rounded-lg shadow-lg overflow-hidden">
+            <div *ngIf="plant.sold_out === 'true'" class="absolute top-3 right-3 px-3 py-1 bg-gray-800 text-white text-xs font-semibold rounded-lg">
+              Sold Out
+            </div>
+            <a href="#">
+              <img [src]="plant.img" [alt]="plant.name" class="w-full h-64 object-cover">
+            </a>
+            <div class="p-4">
+              <h2 class="text-lg font-semibold">{{ plant.name }}</h2>
+              <p class="text-sm text-gray-600">{{ plant.type }}</p>
+              <div class="flex items-center mt-2">
+                <span class="text-sm text-gray-500 line-through">${{ plant.price }}</span>
+                <span class="ml-2 text-lg font-semibold text-green-600">${{ plant.selling_price }}</span>
+              </div>
+              <button
+                [disabled]="plant.sold_out === 'true'"
+                class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition"
+                [ngClass]="plant.sold_out === 'true' ? 'bg-gray-400 cursor-not-allowed text-white' : 'bg-teal-100 hover:bg-teal-100 text-gray-500'">
+                <i class="fas fa-shopping-cart"></i>
+                {{ plant.sold_out === 'true' ? 'Sold Out' : 'Add to Cart' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}
