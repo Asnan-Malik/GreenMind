@@ -2,104 +2,33 @@
 <section class="review">
   <h2>What customers say about GREEMIND?</h2>
   <div class="indicator">
-    <span class="arrow-icon icon1"></span>
-    <span class="arrow-icon"></span>
-    <span class="arrow-icon"></span>
-    <span class="arrow-icon"></span>
+    <span class="arrow-icon icon1" (click)="goToSlide(activeIndex - 1)"></span>
+    <span *ngFor="let slide of testimonials; let i = index"
+          class="arrow-icon"
+          [ngClass]="{ 'icon1': i === activeIndex }"
+          (click)="goToSlide(i)">
+    </span>
+    <span class="arrow-icon" (click)="goToSlide(activeIndex + 1)"></span>
   </div>
 
   <div class="review-container">
-    <div class="slider-row" id="slide">
-      <div class="slider-col">
+    <div class="slider-row" [style.transform]="'translateX(-' + (activeIndex * 100) + '%)'" id="slide">
+      <div *ngFor="let testimonial of testimonials; let i = index" class="slider-col">
         <div class="review-content">
-          <p>
-            Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            vulputate libero et velit interdum, ac aliquet odio mattis.
-            Class aptent taciti sociosqu ad litora torquent per conubia
-            nostra, per inceptos himenaeos.
-          </p>
+          <p>{{ testimonial.content }}</p>
           <div class="review-text">
             <div class="user-info">
               <i class="ri-double-quotes-l"></i>
               <div>
-                <h3>John Doe</h3>
-                <p>Youtuber</p>
+                <h3>{{ testimonial.name }}</h3>
+                <p>{{ testimonial.platform }}</p>
               </div>
             </div>
-            <div><i class="ri-star-fill"></i> <span>4.5</span></div>
+            <div><i class="ri-star-fill"></i> <span>{{ testimonial.rating }}</span></div>
           </div>
         </div>
         <div class="user-img">
-          <img src="img/user1.svg" alt="" />
-        </div>
-      </div>
-      <div class="slider-col">
-        <div class="review-content">
-          <p>
-            Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            vulputate libero et velit interdum, ac aliquet odio mattis.
-            Class aptent taciti sociosqu ad litora torquent per conubia
-            nostra, per inceptos himenaeos.
-          </p>
-          <div class="review-text">
-            <div class="user-info">
-              <i class="ri-double-quotes-l"></i>
-              <div>
-                <h3>John Doe</h3>
-                <p>Youtuber</p>
-              </div>
-            </div>
-            <div><i class="ri-star-fill"></i> <span>4.5</span></div>
-          </div>
-        </div>
-        <div class="user-img">
-          <img src="img/user2.svg" alt="" />
-        </div>
-      </div>
-      <div class="slider-col">
-        <div class="review-content">
-          <p>
-            Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            vulputate libero et velit interdum, ac aliquet odio mattis.
-            Class aptent taciti sociosqu ad litora torquent per conubia
-            nostra, per inceptos himenaeos.
-          </p>
-          <div class="review-text">
-            <div class="user-info">
-              <i class="ri-double-quotes-l"></i>
-              <div>
-                <h3>John Doe</h3>
-                <p>Youtuber</p>
-              </div>
-            </div>
-            <div><i class="ri-star-fill"></i> <span>4.5</span></div>
-          </div>
-        </div>
-        <div class="user-img">
-          <img src="img/user1.svg" alt="" />
-        </div>
-      </div>
-      <div class="slider-col">
-        <div class="review-content">
-          <p>
-            Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            vulputate libero et velit interdum, ac aliquet odio mattis.
-            Class aptent taciti sociosqu ad litora torquent per conubia
-            nostra, per inceptos himenaeos.
-          </p>
-          <div class="review-text">
-            <div class="user-info">
-              <i class="ri-double-quotes-l"></i>
-              <div>
-                <h3>John Doe</h3>
-                <p>Youtuber</p>
-              </div>
-            </div>
-            <div><i class="ri-star-fill"></i> <span>4.5</span></div>
-          </div>
-        </div>
-        <div class="user-img">
-          <img src="img/user2.svg" alt="" />
+          <img [src]="testimonial.image" alt="" />
         </div>
       </div>
     </div>

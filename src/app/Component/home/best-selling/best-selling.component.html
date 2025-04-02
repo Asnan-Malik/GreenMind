@@ -8,25 +8,18 @@
     </button>
   </div>
 
-  <div class="products">
-    <img src="/product1.png" alt="" />
-    <div>
-      <h5>Natural Plants</h5>
-      <p>₱ 1,400.00</p>
+  <ng-container *ngIf="products">
+    <div *ngFor="let product of products" class="products">
+      <img [src]="product.img" [alt]="product.name" />
+      <div>
+        <h5>{{ product.name }}</h5>
+        <p>₱ {{ product.selling_price }}</p>
+      </div>
     </div>
-  </div>
-  <div class="products">
-    <img src="/product2.png" alt="" />
-    <div>
-      <h5>Artificial Plants</h5>
-      <p>₱ 900.00</p>
-    </div>
-  </div>
-  <div class="products">
-    <img src="/product3.png" alt="" />
-    <div>
-      <h5>Natural Plants</h5>
-      <p>₱ 3,500.00</p>
-    </div>
-  </div>
+  </ng-container>
+
+  @if(loader){
+    <app-loader></app-loader>
+  }
 </section>
+
