@@ -9,7 +9,7 @@
   </div>
 
   <ng-container *ngIf="products">
-    <div *ngFor="let product of products" class="products">
+    <div *ngFor="let product of products" class="products" (click)="routeToProductDetails(product.id)">
       <img [src]="product.img" [alt]="product.name" />
       <div>
         <h5>{{ product.name }}</h5>

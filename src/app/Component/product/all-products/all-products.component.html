@@ -46,7 +46,7 @@
             <div *ngIf="plant.sold_out === 'true'" class="absolute top-3 right-3 px-3 py-1 bg-gray-800 text-white text-xs font-semibold rounded-lg">
               Sold Out
             </div>
-            <a href="#">
+            <a (click)="getProductDescription(plant.id)">
               <img [src]="plant.img" [alt]="plant.name" class="w-full h-64 object-cover">
             </a>
             <div class="p-4">

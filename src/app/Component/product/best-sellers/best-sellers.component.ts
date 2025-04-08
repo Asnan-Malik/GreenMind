@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../Services/product/product.service';
 import { Plant, ProductApiResponse } from '../../../Interfaces/productApi';
 import { NgClass, NgFor, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-best-sellers',
@@ -13,7 +14,7 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
 export class BestSellersComponent implements OnInit {
   products: Plant[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit() {
     this.fetchProducts();
@@ -28,5 +29,10 @@ export class BestSellersComponent implements OnInit {
         console.error('Error fetching products:', err);
       }
     });
+  }
+
+  getProductDescription(id: any){
+    const productId = Number(id)
+    this.router.navigate([`product/${productId}`]);
   }
 }

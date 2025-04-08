@@ -5,6 +5,7 @@ import { PaginationService } from '../../../Services/pagination/pagination.servi
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoaderComponent } from "../../../Shared/loader/loader/loader.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-products',
@@ -24,7 +25,8 @@ export class AllProductsComponent {
 
   constructor(
     private productService: ProductService,
-    public paginationService: PaginationService // Inject PaginationService
+    public paginationService: PaginationService, // Inject PaginationService
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -93,5 +95,9 @@ export class AllProductsComponent {
   get totalPages(): number {
     return this.paginationService.getTotalPages(this.filteredPlants.length);
   }
-  
+
+  getProductDescription(id: any){
+    const productId = Number(id)
+    this.router.navigate([`product/${productId}`]);
+  }
 }
