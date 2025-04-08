@@ -19,9 +19,7 @@ export class CategoriesComponent {
 
   constructor(
     private router: Router
-  ) {
-
-  }
+  ) {}
 
   navigateToProduct(){
     this.router.navigate(['/products'])

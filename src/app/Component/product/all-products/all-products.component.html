@@ -57,6 +57,7 @@
                 <span class="ml-2 text-lg font-semibold text-green-600">${{ plant.selling_price }}</span>
               </div>
               <button
+              (click)="addToCart(plant)"
                 [disabled]="plant.sold_out === 'true'"
                 class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition"
                 [ngClass]="plant.sold_out === 'true' ? 'bg-gray-400 cursor-not-allowed text-white' : 'bg-teal-100 hover:bg-teal-100 text-gray-500'">
@@ -70,3 +71,7 @@
     </div>
   </div>
 }
+
+
+<!-- Cart Drawer -->
+<app-cart-drawer [visible]="visible" [cartItems]="cartItems"></app-cart-drawer>

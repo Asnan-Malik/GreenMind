@@ -12,3 +12,13 @@ export interface Plant {
 export interface ProductApiResponse {
   data: Plant[];
 }
+
+
+export interface CartItem {
+  id: string;
+  name: string;
+  img: any;
+  selling_price: any;
+  quantity: number;
+  imageUrl?: string;
+}

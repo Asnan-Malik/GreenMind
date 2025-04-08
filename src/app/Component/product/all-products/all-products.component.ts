@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
-import { Plant } from '../../../Interfaces/productApi';
+import { CartItem, Plant } from '../../../Interfaces/productApi';
 import { ProductService } from '../../../Services/product/product.service';
 import { PaginationService } from '../../../Services/pagination/pagination.service'; // Import PaginationService
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoaderComponent } from "../../../Shared/loader/loader/loader.component";
 import { Router } from '@angular/router';
+import { CartService } from '../../../Services/Cart/cart.service';
+import { CartDrawerComponent } from '../../../Shared/cart-drawer/cart-drawer.component';
 
 @Component({
   selector: 'app-all-products',
   standalone: true,
-  imports: [NgClass ,NgIf, NgFor, FormsModule, LoaderComponent],
+  imports: [NgClass, NgIf, NgFor, FormsModule, LoaderComponent, CartDrawerComponent  ],
   templateUrl: './all-products.component.html',
   styleUrls: ['./all-products.component.scss'],
 })
@@ -22,11 +24,14 @@ export class AllProductsComponent {
   selectedTypes: string[] = []; // Selected types
   searchQuery: string = ''; // Search input for filtering types
   loader = false;
+  visible: boolean = false;
+  cartItems: CartItem[] = [];
 
   constructor(
     private productService: ProductService,
     public paginationService: PaginationService, // Inject PaginationService
-    private router: Router
+    private router: Router,
+    private cartService: CartService
   ) {}
 
   ngOnInit() {
@@ -99,5 +104,17 @@ export class AllProductsComponent {
   getProductDescription(id: any){
     const productId = Number(id)
     this.router.navigate([`product/${productId}`]);
+  }
+
+  // Update the addToCart method in AllProductsComponent
+  addToCart(product: Plant) {
+    this.cartService.addItem({
+      id: product.id,
+      name: product.name,
+      selling_price: product.selling_price,
+      img: product.img,
+      quantity: 1
+    });
+    // No need to manually set visible - the service handles it
   }
 }
