@@ -17,7 +17,7 @@ export class CartService {
   }
 
   addItem(item: CartItem) {
-    const currentItems = this.items;
+    const currentItems = this.cartItems.value;
     const existingIndex = currentItems.findIndex(i => i.id === item.id);
 
     if (existingIndex > -1) {
@@ -31,7 +31,7 @@ export class CartService {
       this.cartItems.next([...currentItems, { ...item, quantity: 1 }]);
     }
 
-    // Open the drawer when adding items
+    // Automatically open the drawer when adding items
     this.drawerService.openDrawer();
   }
 

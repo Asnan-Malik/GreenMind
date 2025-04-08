@@ -1,4 +1,3 @@
-// src/app/services/drawer.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -6,18 +5,18 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DrawerService {
-  private isOpen = new BehaviorSubject<boolean>(false);
-  isOpen$ = this.isOpen.asObservable();
+  private isOpenSource = new BehaviorSubject<boolean>(false);
+  isOpen$ = this.isOpenSource.asObservable();
 
   openDrawer() {
-    this.isOpen.next(true);
+    this.isOpenSource.next(true);
   }
 
   closeDrawer() {
-    this.isOpen.next(false);
+    this.isOpenSource.next(false);
   }
 
   toggleDrawer() {
-    this.isOpen.next(!this.isOpen.value);
+    this.isOpenSource.next(!this.isOpenSource.value);
   }
 }
