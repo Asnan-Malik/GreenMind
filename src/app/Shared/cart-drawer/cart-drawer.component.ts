@@ -5,6 +5,7 @@ import { DrawerModule } from 'primeng/drawer';
 import { CartItem } from '../../Interfaces/productApi';
 import { CartService } from '../../Services/Cart/cart.service';
 import { DrawerService } from '../../Services/Cart/drawer.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class CartDrawerComponent {
 
   @Output() closeDrawer: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private cartService: CartService, private drawerService: DrawerService) {}
+  constructor(private cartService: CartService, private drawerService: DrawerService, private router: Router) {}
 
   ngOnInit() {
     this.cartService.cartItems$.subscribe(items => {
@@ -61,4 +62,8 @@ export class CartDrawerComponent {
     this.drawerService.closeDrawer();
   }
 
+  proceedToCheckout(): void {
+    this.drawerService.closeDrawer();
+    this.router.navigate(['/checkout']);
+  }
 }

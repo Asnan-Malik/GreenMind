@@ -1,1 +1,39 @@
-<p>product-by-id works!</p>
+<!-- Item Detail -->
+<div class="mx-auto px-4 py-8">
+  <a href="../product.html" class="inline-flex items-center text-gray-600 hover:text-gray-800 mb-6">
+    <i class="fas fa-arrow-left mr-2"></i> Back
+  </a>
+
+  <div class="flex flex-col md:flex-row gap-8 bg-white rounded-xl p-6" *ngFor="let product of product">
+    <!-- Product Image -->
+    <div class="w-[550px] h-[550px]">
+      <img
+        class="rounded-lg w-[550px] h-[550px] object-cover"
+        [src]="product.img">
+    </div>
+
+    <!-- Product Details -->
+    <div class="w-full md:w-1/2 py-6 flex flex-col justify-between">
+      <div>
+        <h2 class="text-lg text-green-600 font-semibold">{{product.type}}</h2>
+        <h1 class="text-3xl font-bold text-gray-800 mb-4">{{product.name}}</h1>
+
+        <div class="text-gray-500 line-through text-lg">{{product.price}}$</div>
+        <div class="text-2xl font-semibold text-green-600 mb-4">{{product.selling_price}}$</div>
+
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Description</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          {{product.description}}
+        </p>
+      </div>
+
+      <button (click)="addToCart(product)"
+        class="mt-6 bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-5 rounded-lg flex items-center justify-center gap-2 transition duration-300">
+        <i class="fas fa-shopping-cart"></i> Add to cart
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Cart Drawer -->
+<app-cart-drawer [visible]="visible" [cartItems]="cartItems"></app-cart-drawer>

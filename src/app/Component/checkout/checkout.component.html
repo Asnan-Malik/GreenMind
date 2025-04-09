@@ -1,0 +1,147 @@
+<div class="checkout-container p-6 mx-auto">
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="text-2xl font-bold">Checkout</h1>
+    <button
+      class="text-gray-500 hover:text-gray-700"
+      (click)="goBack()">
+      ← Back to Cart
+    </button>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Left Column - Order Summary -->
+    <div class="md:col-span-2">
+      <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <h2 class="text-xl font-semibold mb-4">Shipping Information</h2>
+        <form [formGroup]="checkoutForm" (ngSubmit)="placeOrder()">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-gray-700 mb-2">First Name</label>
+              <input type="text" formControlName="firstName" class="w-full p-2 border rounded">
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2">Last Name</label>
+              <input type="text" formControlName="lastName" class="w-full p-2 border rounded">
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2">Address</label>
+            <input type="text" formControlName="address" class="w-full p-2 border rounded">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div>
+              <label class="block text-gray-700 mb-2">City</label>
+              <input type="text" formControlName="city" class="w-full p-2 border rounded">
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2">State/Province</label>
+              <input type="text" formControlName="state" class="w-full p-2 border rounded">
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2">Zip/Postal Code</label>
+              <input type="text" formControlName="zip" class="w-full p-2 border rounded">
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2">Email</label>
+            <input type="email" formControlName="email" class="w-full p-2 border rounded">
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2">Phone</label>
+            <input type="tel" formControlName="phone" class="w-full p-2 border rounded">
+          </div>
+        </form>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-xl font-semibold mb-4">Payment Method</h2>
+        <div class="mb-4">
+          <label class="flex items-center">
+            <input type="radio" name="payment" class="mr-2" checked>
+            Credit Card
+          </label>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2">Card Number</label>
+          <input type="text" class="w-full p-2 border rounded" placeholder="1234 5678 9012 3456">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-gray-700 mb-2">Expiration Date</label>
+            <input type="text" class="w-full p-2 border rounded" placeholder="MM/YY">
+          </div>
+          <div>
+            <label class="block text-gray-700 mb-2">CVV</label>
+            <input type="text" class="w-full p-2 border rounded" placeholder="123">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column - Order Summary -->
+    <div class="md:col-span-1">
+      <div class="bg-white rounded-lg shadow p-6 sticky top-4">
+        <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+
+        <div *ngFor="let item of cartItems" class="flex gap-4 py-3 border-b">
+          <img [src]="item.img" [alt]="item.name" class="w-16 h-16 object-cover rounded">
+
+          <div class="flex-1">
+            <h4 class="font-medium">{{item.name}}</h4>
+            <p class="text-green-600 font-semibold">${{item.selling_price | number:'1.2-2'}}</p>
+
+            <div class="flex items-center mt-1">
+              <button (click)="updateQuantity(+item.id, item.quantity - 1)"
+                      [disabled]="item.quantity <= 1"
+                      class="w-6 h-6 flex items-center justify-center border rounded hover:bg-gray-100">
+                −
+              </button>
+              <span class="mx-2 w-6 text-center">{{item.quantity}}</span>
+              <button (click)="updateQuantity(+item.id, item.quantity + 1)"
+                      class="w-6 h-6 flex items-center justify-center border rounded hover:bg-gray-100">
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-end">
+            <button (click)="removeItem(+item.id)" class="text-gray-400 hover:text-red-500 text-sm">
+              Remove
+            </button>
+            <p class="mt-2 font-semibold">
+              ${{(item.selling_price * item.quantity) | number:'1.2-2'}}
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t">
+          <div class="flex justify-between mb-2">
+            <span>Subtotal</span>
+            <span>${{subtotal | number:'1.2-2'}}</span>
+          </div>
+          <div class="flex justify-between mb-2">
+            <span>Shipping</span>
+            <span>${{shipping | number:'1.2-2'}}</span>
+          </div>
+          <div class="flex justify-between font-bold text-lg mt-4 pt-4 border-t">
+            <span>Total</span>
+            <span>${{total | number:'1.2-2'}}</span>
+          </div>
+
+          <button
+            (click)="placeOrder()"
+            class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-medium mt-4"
+            [disabled]="cartItems.length === 0">
+            Place Order
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

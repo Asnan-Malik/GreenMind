@@ -4,6 +4,7 @@ import { ProductComponent } from './Component/product/product.component';
 import { AboutUsComponent } from './Component/home/about-us/about-us.component';
 import { ContactComponent } from './Component/contact/contact.component';
 import { ProductByIdComponent } from './Component/product/product-by-id/product-by-id.component';
+import { CheckoutComponent } from './Component/checkout/checkout.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,10 @@ export const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent, // Contact Us Page
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent
   },
   {
     path: '**',
