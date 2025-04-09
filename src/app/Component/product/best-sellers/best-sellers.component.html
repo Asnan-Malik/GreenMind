@@ -20,7 +20,7 @@
           <span class="ml-2 text-lg font-semibold text-green-600">${{ product.selling_price }}</span>
         </div>
 
-        <button
+        <button (click)="addToCart(product)"
           class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-3 rounded-lg transition"
           [ngClass]="product.sold_out === 'true' ? 'bg-gray-400 cursor-not-allowed' : 'bg-teal-100 text-gray-500'"
           [disabled]="product.sold_out === 'true'"
@@ -32,3 +32,4 @@
     </div>
   </div>
 </div>
+<app-cart-drawer [visible]="visible" [cartItems]="cartItems"></app-cart-drawer>
